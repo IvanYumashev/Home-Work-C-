@@ -76,7 +76,6 @@
 // Console.WriteLine("Задача №37: 'произведение пар чисел в одномерном массиве.'");
 // Console.WriteLine("");
 // int[] myarray3 = MyArray(new Random().Next(5, 15), -10, 99);
-// MultiPair(myarray3);
 // int[] resarray = MultiResultArray(myarray3);
 // Console.WriteLine("");
 // Console.WriteLine("Новый массив с результатом произведения пар основного массива:");
