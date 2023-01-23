@@ -1,105 +1,110 @@
-﻿// Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
-// // 3, 5 -> 243 (3⁵)
-// // 2, 4 -> 16
-// Console.WriteLine($"\nЗадача 25. Возведене числа A в натуральную степень B");
-// int Exponentiation(int numberA, int numberB){
-//   int result = 1;
-//   for(int i=1; i <= numberB; i++){
-//     result = result * numberA;
+﻿// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+ // [345, 897, 568, 234] -> 2
+
+// Console.Clear();
+// Console.WriteLine($"Задача 34. Количество чётных чисел в массиве:\n");
+// int[] numbers = new int[10];
+
+// void FillArray(int[] array, int min, int max){
+//   for (int i = 0; i<array.Length; i++ ){
+//     array[i] = new Random().Next(min, max);
 //   }
-//     // int result = Math.Pow(numberA, numberB);
-//     return result;
 // }
-//   Console.Write("Введите число A: ");
-//   int numberA = Convert.ToInt32(Console.ReadLine());
-//   Console.Write("Введите число B: ");
-//   int numberB = Convert.ToInt32(Console.ReadLine());
-//   int exponentiation = Exponentiation(numberA, numberB);
-//   Console.WriteLine("Ответ: " + exponentiation);
-// Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
-// // 452 -> 11
-// // 82 -> 10
-// // 9012 -> 12
-// Console.WriteLine($"\nЗадача 27. Выдаёт сумму цифр в числе");
-// Console.Write("Введите число N: ");
-// int numberN = Convert.ToInt32(Console.ReadLine());
-//   int SumNumber(int numberN){
-//     int counter = Convert.ToString(numberN).Length;
-//     int advance = 0;
-//     int result = 0;
-//     for (int i = 0; i < counter; i++){
-//       advance = numberN - numberN % 10;
-//       result = result + (numberN - advance);
-//       numberN = numberN / 10;
-//     }
-//    return result;
+
+// void WriteArray(int[] array){
+//     for (int i = 0; i<array.Length; i++ ){
+//     Console.Write(array[i] + " ");
 //   }
-// int sumNumber = SumNumber(numberN);
-// Console.WriteLine("Сумма цифр в числе: " + sumNumber);
-// Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
-// // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
-// // 6, 1, 33 -> [6, 1, 33]
-// Console.WriteLine($"\nЗадача 29. Ряд чисел преобразует в массив");
-// Console.Write("Введите ряд чисел, разделенных запятой : ");
-// string? seriesOfNumbers = Console.ReadLine();
-// seriesOfNumbers = seriesOfNumbers + ",";    // дополнительня запятая для обозначения конца строки
-// // функция удаления пробелов из строки 
-// string RemovingSpaces (string series){
-//   string seriesNew = "";
-//   for (int i = 0; i < series.Length; i++)
-//   {
-//     if (series[i] != ' ') 
+//   Console.WriteLine();
+// }
+
+// int QuantityPositive(int[] array){
+//     int quantity = 0;
+//     for (int i = 0; i<array.Length; i++ ){
+//     if (array[i] % 2 == 1)
 //     {
-//       seriesNew += series[i];
+//       quantity++;
 //     }
 //   }
-//   return seriesNew;
+//   return quantity;
 // }
-// //  функция  проверки на правильность ввода 
-// void СheckNumber2 (int  series){
-//       if (series == '0'||series == '1'||series == '2'
-//       ||series == '3'||series == '4'||series == '5'||series == '6'
-//       ||series == '7'||series == '8'||series == '9'||series == ','
-//       ||series == '-')
+
+// FillArray(numbers, 100, 1000);
+// WriteArray(numbers);
+// Console.WriteLine();
+
+// int quantity = QuantityPositive(numbers);
+// Console.WriteLine($"Количество чётных чисел в массиве: {quantity}");
+
+
+// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+// [3, 7, 23, 12] -> 19
+// [-4, -6, 89, 6] -> 0
+
+
+ // Console.Clear();
+// Console.WriteLine($"\nЗадача 36. Сумма элементов, стоящих на нечётных позициях:\n");
+// Console.Write($"Введи количество элементов массива: ");
+// int numberElements = Convert.ToInt32(Console.ReadLine()); 
+
+// int RandomNumbers(int numberElements, int min, int max)
+//   {
+//   int[] randomNumbers = new int[numberElements];
+//   int sumElements = 0;
+//   Console.Write("Получившийся массив: ");
+
+//     for (int i = 0; i <randomNumbers.Length; i++ ){
+//       randomNumbers[i] = new Random().Next(min, max);
+
+//       Console.Write(randomNumbers[i] + " ");
+
+//       if (i % 2 != 1)
 //       {
+//         sumElements = sumElements + randomNumbers[i];
 //       }
-//         else {
-//           Console.WriteLine($"Ошибка ввода  символа. Вводи цифры.");
-//       }
-// }
-// // функция  создания и заполнения массива из строки
-// int[] ArrayOfNumbers(string seriesNew){ 
-//   int[] arrayOfNumbers = new int[1];    // инициализация массива из 1 элемента
-//   int j =0;
-//   for (int i = 0; i < seriesNew.Length; i++){
-//     string seriesNew1 = "";
-//     while (seriesNew[i] != ',' && i < seriesNew.Length){
-//       seriesNew1 += seriesNew[i];
-//       СheckNumber2(seriesNew[i]);
-//       i++;
 //     }
-//     arrayOfNumbers[j] = Convert.ToInt32(seriesNew1);    // заполняет массив значениями из строки
-//     if (i < seriesNew.Length-1){
-//       arrayOfNumbers = arrayOfNumbers.Concat(new int[] {0}).ToArray();    // добавляет новый нулевой элемент в конец массива
-//     }
-//     j++;
+//   return sumElements;
 //   }
-//   return arrayOfNumbers;
-// }
-// // функция  вывода массива на печать 
-// void PrintArry(int[] coll){
-//   int count = coll.Length;
-//   int index = 0;
-//   Console.Write("[");
-//   while(index < count){
-//     Console.Write(coll[index]);
-//     index++;
-//     if (index < count){
-//       Console.Write(", ");
+
+// int randomNumbers =  RandomNumbers(numberElements, 1, 10);
+
+// Console.WriteLine($"\nСумма элементов, стоящих на нечётных позициях: {randomNumbers}");
+
+
+//Задача 37: Найдите произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д. Результат запишите в новом массиве.
+
+// Console.WriteLine("Задача №37: 'произведение пар чисел в одномерном массиве.'");
+// Console.WriteLine("");
+// int[] myarray3 = MyArray(new Random().Next(5, 15), -10, 99);
+// MultiPair(myarray3);
+// int[] resarray = MultiResultArray(myarray3);
+// Console.WriteLine("");
+// Console.WriteLine("Новый массив с результатом произведения пар основного массива:");
+// PrintArray(resarray);
+// int[] MultiResultArray(int[] array){
+//     int[] myarray = ArrayReverse(array);
+//     if(array.Length % 2 == 0){
+//         int[] resultarray = new int[array.Length / 2];
+//          for(int i = 0; i < array.Length / 2; i++){
+//             resultarray[i] = array[i] * myarray[i];
+//         }
+//         return resultarray;
 //     }
-//   }
-//   Console.Write("]");
-// } 
-// string seriesNew = RemovingSpaces(seriesOfNumbers);
-// int[] arrayOfNumbers =  ArrayOfNumbers(seriesNew);
-// PrintArry(arrayOfNumbers);
+//     else{
+//         int[] resultarray = new int[array.Length / 2 + 1];
+//          for(int i = 0; i < array.Length / 2; i++){
+//             resultarray[i] = array[i] * myarray[i];
+//         }
+//          resultarray[array.Length / 2] = myarray[array.Length / 2];
+//          return resultarray;
+//     }
+// }
+// int[] ArrayReverse(int[] array){
+//     int[] myarray = new int[array.Length];
+//     int j = array.Length - 1;
+//     for(int i = 0; i < array.Length; i++){
+//         myarray[i] = array[j];
+//         j--;
+//     }
+//     return myarray;
+// }
